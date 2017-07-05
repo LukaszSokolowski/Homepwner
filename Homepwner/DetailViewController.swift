@@ -21,7 +21,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             navigationItem.title = item.name
         }
     }
-    
+  //MARK: - Formatters
     let numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -35,7 +35,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         formatter.timeStyle = .none
         return formatter
     }()
-    
+  //MARK: - View functions
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -62,13 +62,21 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
     }
-    
+  //MARK: - UI elements
     @IBAction func takePicture(_ sender: UIBarButtonItem) {
+        let imagePicker = UIImagePickerController()
+        // If device has a camera take a picture if not pick photo from library
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+        } else {
+            imagePicker.sourceType = .photoLibrary
+        }
     }
+    
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-    
+  //MARK: - Passing data to view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let datePickerViewController = segue.destination as? DatePickerViewController {
             datePickerViewController.currentItem = item
