@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UITextFieldDelegate {
+class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet var nameField: ItemDetailTextField!
     @IBOutlet var serialNumberField: ItemDetailTextField!
@@ -71,6 +71,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         } else {
             imagePicker.sourceType = .photoLibrary
         }
+        
+        imagePicker.delegate = self
+        
+        // Place image picker on the screen
+        present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
