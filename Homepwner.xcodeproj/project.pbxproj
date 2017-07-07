@@ -20,6 +20,7 @@
 		21F629911EFDAC7A001790DA /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F629901EFDAC7A001790DA /* ItemStore.swift */; };
 		21F750561F0A7A26008C19E2 /* ItemDetailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F750551F0A7A26008C19E2 /* ItemDetailTextField.swift */; };
 		21F750581F0A9EFD008C19E2 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F750571F0A9EFD008C19E2 /* DatePickerViewController.swift */; };
+		21F921FC1F103B7E00DD86AE /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F921FB1F103B7E00DD86AE /* ImageStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		21F629901EFDAC7A001790DA /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
 		21F750551F0A7A26008C19E2 /* ItemDetailTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailTextField.swift; sourceTree = "<group>"; };
 		21F750571F0A9EFD008C19E2 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		21F921FB1F103B7E00DD86AE /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				21F629651EFC0351001790DA /* Assets.xcassets */,
 				21F629671EFC0351001790DA /* LaunchScreen.storyboard */,
 				21F6296A1EFC0351001790DA /* Info.plist */,
+				21F921FB1F103B7E00DD86AE /* ImageStore.swift */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				21F629911EFDAC7A001790DA /* ItemStore.swift in Sources */,
 				21C7CB501F06A44E008A9A05 /* DetailViewController.swift in Sources */,
 				21F750581F0A9EFD008C19E2 /* DatePickerViewController.swift in Sources */,
+				21F921FC1F103B7E00DD86AE /* ImageStore.swift in Sources */,
 				21F750561F0A7A26008C19E2 /* ItemDetailTextField.swift in Sources */,
 				21F6295F1EFC0351001790DA /* AppDelegate.swift in Sources */,
 				21C7CB4E1F057830008A9A05 /* ItemCell.swift in Sources */,
