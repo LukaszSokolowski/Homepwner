@@ -118,12 +118,12 @@
 				21F750551F0A7A26008C19E2 /* ItemDetailTextField.swift */,
 				21F6298E1EFD9B76001790DA /* Item.swift */,
 				21F629901EFDAC7A001790DA /* ItemStore.swift */,
+				21F921FB1F103B7E00DD86AE /* ImageStore.swift */,
 				21C7CB4D1F057830008A9A05 /* ItemCell.swift */,
 				21F629621EFC0351001790DA /* Main.storyboard */,
 				21F629651EFC0351001790DA /* Assets.xcassets */,
 				21F629671EFC0351001790DA /* LaunchScreen.storyboard */,
 				21F6296A1EFC0351001790DA /* Info.plist */,
-				21F921FB1F103B7E00DD86AE /* ImageStore.swift */,
 			);
 			path = Homepwner;
 			sourceTree = "<group>";

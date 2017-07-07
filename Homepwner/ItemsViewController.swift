@@ -8,8 +8,10 @@
 
 import UIKit
 class ItemsViewController: UITableViewController {
-    var itemStore: ItemStore!
     
+    var itemStore: ItemStore!
+    var imageStore: ImageStore!
+
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     
@@ -42,11 +44,12 @@ class ItemsViewController: UITableViewController {
             tableView.insertRows(at: [indexPath], with: .automatic)
         }
     }
-          // two required methods for table view
+    // MARK: - Table view setup
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return itemStore.allItems.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // Get a new or recycled cell
@@ -94,14 +97,17 @@ class ItemsViewController: UITableViewController {
         // Update the model
         itemStore.moveItem(from: sourceIndexPath.row, to: destinationIndexPath.row)
     }
+    
     override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         let tittleForDeleteButton = "Remove"
         return tittleForDeleteButton
     }
+    
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         let titleForFooter = "No more items!"
         return titleForFooter
     }
+    // MARK: - Passing data to DetailViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // If the triggered segue is the showItem segue
         switch segue.identifier {
@@ -112,6 +118,7 @@ class ItemsViewController: UITableViewController {
                 let item = itemStore.allItems[row]
                 let detailViewController = segue.destination as! DetailViewController
                 detailViewController.item = item
+                detailViewController.imageStore = imageStore
             }
         default:
             preconditionFailure("Unexpected segue identifier.")
