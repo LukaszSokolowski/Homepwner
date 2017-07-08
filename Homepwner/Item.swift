@@ -9,19 +9,22 @@
 import UIKit
 
 class Item: NSObject {
+    
     var name: String
     var valueInDollars: Int
     var serialNumber: String?
     var dateCreated: Date
+    let itemKey: String
     
     init(name: String, serialNumber: String?, valueInDollars: Int) {
         self.name = name
         self.serialNumber = serialNumber
         self.valueInDollars = valueInDollars
         self.dateCreated = Date()
-        
+        self.itemKey = UUID().uuidString
         super.init()
     }
+    
     convenience init(random: Bool = false) {
         if random {
             let adjectives = ["Fluffy","Rusty","Shiny"]
@@ -42,7 +45,6 @@ class Item: NSObject {
         } else {
                 self.init(name: "", serialNumber: nil, valueInDollars: 0)
         }
-        
    }
    
 }

@@ -38,7 +38,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         formatter.timeStyle = .none
         return formatter
     }()
-  //MARK: - View functions
+  //MARK: - View life cycle
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -64,6 +64,13 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         serialNumberField.text = item.serialNumber
         valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
+        
+        // Get the item key
+        let key = item.itemKey
+        
+        // If there is associated image put this image onto image view
+        let imageToDisplay = imageStore.image(forKey: key)
+        imageView.image = imageToDisplay
     }
   //MARK: - UI elements
     @IBAction func takePicture(_ sender: UIBarButtonItem) {
@@ -84,6 +91,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // Get picked image from info dictionary
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        // Store the image in the ImageStore for the item`s key
+        imageStore.setImage(image, forKey: item.itemKey)
         
         // Put that image on the screen in the image view 
         imageView.image = image
