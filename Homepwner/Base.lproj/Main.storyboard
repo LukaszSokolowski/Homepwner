@@ -196,8 +196,16 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem systemItem="camera" id="GlZ-OX-nZp">
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="takePicture:" destination="wew-8K-uTB" id="XUl-tS-F1F"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="trash" id="UM6-F2-1ZK">
+                                        <inset key="imageInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="removePhotoButtonPressed:" destination="wew-8K-uTB" id="agb-Ep-t5D"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -222,6 +230,7 @@
                         <outlet property="dateLabel" destination="afq-2x-gjf" id="OtM-4Z-IK8"/>
                         <outlet property="imageView" destination="kqx-cX-LTD" id="iOA-pZ-gMT"/>
                         <outlet property="nameField" destination="gAx-JE-dfO" id="Vce-VD-39p"/>
+                        <outlet property="removePhotoButton" destination="UM6-F2-1ZK" id="YkR-Vk-H6z"/>
                         <outlet property="serialNumberField" destination="GwH-7f-3yG" id="JAv-aN-q9x"/>
                         <outlet property="valueField" destination="TCh-eX-nii" id="rjG-mX-JCx"/>
                     </connections>

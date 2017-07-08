@@ -22,6 +22,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         }
     }
     
+    @IBOutlet var removePhotoButton: UIBarButtonItem!
     var imageStore: ImageStore!
     
   //MARK: - Formatters
@@ -65,12 +66,19 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         valueField.text = numberFormatter.string(from: NSNumber(value: item.valueInDollars))
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
         
+       
         // Get the item key
         let key = item.itemKey
         
         // If there is associated image put this image onto image view
         let imageToDisplay = imageStore.image(forKey: key)
         imageView.image = imageToDisplay
+        
+        if imageView.image == nil {
+            removePhotoButton.isEnabled = false
+        } else {
+            removePhotoButton.isEnabled = true
+        }
     }
   //MARK: - UI elements
     @IBAction func takePicture(_ sender: UIBarButtonItem) {
@@ -110,6 +118,12 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
+    
+    @IBAction func removePhotoButtonPressed(_ sender: UIBarButtonItem) {
+        imageStore.deleteImage(forKey: item.itemKey)
+        imageView.image = nil
+    }
+    
   //MARK: - Passing data to view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let datePickerViewController = segue.destination as? DatePickerViewController {
