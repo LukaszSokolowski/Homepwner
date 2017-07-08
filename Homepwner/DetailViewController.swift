@@ -75,9 +75,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
   //MARK: - UI elements
     @IBAction func takePicture(_ sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
         // If device has a camera take a picture if not pick photo from library
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker.sourceType = .camera
+            imagePicker.showsCameraControls = true
         } else {
             imagePicker.sourceType = .photoLibrary
         }
@@ -90,7 +92,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // Get picked image from info dictionary
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        picker.allowsEditing = true
+        let image = info[UIImagePickerControllerEditedImage] as! UIImage
         
         // Store the image in the ImageStore for the item`s key
         imageStore.setImage(image, forKey: item.itemKey)
@@ -102,6 +105,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         // You must call dismiss method 
         dismiss(animated: true, completion: nil)
     }
+    
     
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
