@@ -14,7 +14,7 @@ class ItemsViewController: UITableViewController {
 
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
-    
+  // MARK: - View life cycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -32,7 +32,7 @@ class ItemsViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem = editButtonItem
     }
-    
+  // MARK: - UI elements
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         
       // Create a new item and add to the store
